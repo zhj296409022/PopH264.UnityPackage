@@ -716,9 +716,9 @@ public static class PopH264
 				var Chromax = x / 2;
 				var Chromay = y/2;
 				var Chromai = Chromax + (Chromay * HalfWidth );
-				LumaPlane[i] = Luma;
-				ChromaUPlane[Chromai] = ChromaU;
-				ChromaVPlane[Chromai] = ChromaV;
+				LumaPlane.set_Item(i, Luma);
+				ChromaUPlane.set_Item(Chromai, ChromaU);
+				ChromaVPlane.set_Item(Chromai, ChromaV);
 			}
 			//	push as one plane with a format (mediafoundation & avf support this better)
 			PushFrameYuvI420( YuvPixels, Width, Height, Keyframe );
@@ -751,9 +751,9 @@ public static class PopH264
 				var Chromai = Chromax + (Chromay * HalfWidth);
 				Chromai *= 2;
 				
-				LumaPlane[i] = Luma;
-				ChromaUVPlane[Chromai+0] = ChromaU;
-				ChromaUVPlane[Chromai+1] = ChromaV;
+				LumaPlane.set_Item(i, Luma);
+				ChromaUVPlane.set_Item(Chromai + 0, ChromaU);
+				ChromaUVPlane.set_Item(Chromai + 1, ChromaV);
 			}
 			//	push as one plane with a format (mediafoundation & avf support this better)
 			PushFrameYuv8_88( YuvPixels, Width, Height, Keyframe );
